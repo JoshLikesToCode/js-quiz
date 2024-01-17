@@ -103,7 +103,7 @@
     // TODO 4: Declare disable & enable functions to set or remove the "disabled" attribute from a given button element
     // disable(button) should set the button element's attribute "disabled" to the value ""
     // enable(button) should remove the attribute "disabled" from the button element
-    const disable = (button) => button.setAttributeNode("disabled", "");
+    const disable = (button) => button.setAttribute("disabled", "True");
     const enable = (button) => button.removeAttribute("disabled");
 
 
@@ -115,17 +115,25 @@
     }
 
     // TODO 6A: Use a for loop to add a click event listener to each of the optionButtons
+    for(let button of optionsButtons)
+    {
             // TODO 6B: Within the event handler function, display the fact's explanation by setting the text of the explanation element
-
+            button.addEventListener("click", (event) => {
+                explanation.textContent = fact.explanation;
 
             // TODO 7: Within the event handler function, 
             // Use a for loop to disable all the option buttons
-
+            for(let disabledButton of optionsButtons)
+            {
+                disable(disabledButton);
+            }
 
             // TODO 8: Within the event handler function,
             // Get the guessed value from the clicked button
             // Use a conditional to compare the guess to the fact's answer
             // and add the "correct"/"incorrect" class as appropriate
+        })
+    }
 
     
 
